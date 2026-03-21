@@ -19,5 +19,5 @@ def health_check():
 
 @app.post("/predict")
 def Predict(request: PredictRequest) -> PredictResponse:
-    prediction = predict(request.model_dump())
+    prediction = predict(request.model_dump(), model)
     return PredictResponse(prediction=prediction)

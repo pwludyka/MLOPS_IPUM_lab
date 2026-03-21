@@ -1,5 +1,6 @@
 import joblib
 import numpy as np
+from typing import Any
 
 flowers_names = {0: "setosa", 1: "versicolor", 2: "virginica"}
 
@@ -10,8 +11,8 @@ def load_model():
     return trained_model["model"], trained_model["scaler"]
 
 
-def predict(features: dict):
-    model, scaler = load_model()
+def predict(features: dict, loaded_model: Any):
+    model, scaler = loaded_model
     dimensions = np.array(
         [
             [
